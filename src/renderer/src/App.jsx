@@ -25,7 +25,7 @@ const browsers = [
     icon: BrowserChromiumLogo,
   },
   {
-    key: "microsoft-edge",
+    key: "edge",
     name: "Microsoft Edge",
     icon: BrowserMicrosoftEdgeIcon,
   },
