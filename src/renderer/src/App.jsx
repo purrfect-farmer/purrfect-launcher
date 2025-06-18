@@ -103,7 +103,7 @@ function BrowserProfiles({ browserKey }) {
               loading="lazy"
             />
 
-            <div className="flex flex-col grow min-w-0 min-h-0 min-w-0">
+            <div className="flex flex-col grow min-w-0 min-h-0">
               <h3 className="font-bold truncate w-full">
                 {profile.name || profile.directory}{" "}
                 {profile["gaia_name"] ? (
