@@ -20,8 +20,21 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^4.0.0",
+    "@fontsource/noto-sans": "^5.2.7",
+    "@fontsource/turret-road": "^5.2.6",
     "@tailwindcss/vite": "^4.1.10",
-    "tailwindcss": "^4.1.10"
+    "bufferutil": "^4.0.9",
+    "clsx": "^2.1.1",
+    "motion": "^12.18.1",
+    "prop-types": "^15.8.1",
+    "ps-list": "^8.1.1",
+    "radix-ui": "^1.4.2",
+    "react-icons": "^5.5.0",
+    "socket.io": "^4.8.1",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.10",
+    "utf-8-validate": "^6.0.5",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^2.0.0",
@@ -41,8 +54,10 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "bufferutil",
       "electron",
-      "esbuild"
+      "esbuild",
+      "utf-8-validate"
     ]
   }
 }
