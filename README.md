@@ -1,6 +1,6 @@
-# purrfect-launcher
+# Purrfect Launcher
 
-An Electron application with React
+Multi-Browser profile launcher
 
 ## Recommended IDE Setup
 
