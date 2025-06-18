@@ -89,6 +89,7 @@ export function getProfiles(browserKey) {
     const infoCache = state.profile?.info_cache || {};
     return Object.entries(infoCache).map(([directory, profile]) => ({
       ...profile,
+      browserKey,
       directory,
       path: join(userDataDir, directory),
     }));
