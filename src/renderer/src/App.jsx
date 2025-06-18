@@ -46,7 +46,8 @@ function Browser({ browserKey }) {
         ? profiles.filter((profile) => {
             return (
               searchIncludes(profile["name"], search) ||
-              searchIncludes(profile["user_name"], search)
+              searchIncludes(profile["user_name"], search) ||
+              searchIncludes(profile["gaia_name"], search)
             );
           })
         : profiles,
@@ -58,6 +59,8 @@ function Browser({ browserKey }) {
       .invoke("get-profiles", browserKey)
       .then(setProfiles);
   }, [browserKey]);
+
+  console.log(profiles);
 
   return (
     <div className="flex flex-col gap-2 grow">
@@ -100,17 +103,31 @@ function Browser({ browserKey }) {
               loading="lazy"
             />
 
-            <div>
-              <h3 className="font-bold">{profile.name || profile.directory}</h3>
-              <h5
-                className={cn(
-                  "truncate",
-                  "text-neutral-500 dark:text-neutral-400",
-                  "group-hover:text-orange-900",
-                )}
-              >
-                {profile["user_name"]}
-              </h5>
+            <div className="flex flex-col grow min-w-0">
+              <h3 className="font-bold truncate w-full">
+                {profile.name || profile.directory}{" "}
+                {profile["gaia_name"] ? (
+                  <span
+                    className={cn(
+                      "text-neutral-500 dark:text-neutral-400",
+                      "group-hover:text-orange-900",
+                    )}
+                  >
+                    ({profile["gaia_name"]})
+                  </span>
+                ) : null}
+              </h3>
+              {profile["user_name"] ? (
+                <h5
+                  className={cn(
+                    "truncate",
+                    "text-neutral-500 dark:text-neutral-400",
+                    "group-hover:text-orange-900",
+                  )}
+                >
+                  {profile["user_name"]}
+                </h5>
+              ) : null}
             </div>
           </button>
         ))}
