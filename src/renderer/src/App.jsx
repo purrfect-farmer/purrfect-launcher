@@ -36,7 +36,7 @@ const browsers = [
   },
 ];
 
-function Browser({ browserKey }) {
+function BrowserProfiles({ browserKey }) {
   const [profiles, setProfiles] = useState([]);
   const [search, setSearch] = useState("");
 
@@ -63,8 +63,8 @@ function Browser({ browserKey }) {
   console.log(profiles);
 
   return (
-    <div className="flex flex-col gap-2 grow">
-      <div className="px-4">
+    <div className="flex flex-col gap-2 grow min-w-0 min-h-0">
+      <div className="px-4 shrink-0">
         <Input
           type="search"
           placeholder={"Search"}
@@ -73,7 +73,7 @@ function Browser({ browserKey }) {
         />
       </div>
 
-      <div className="flex flex-col gap-2 grow overflow-auto px-4">
+      <div className="flex flex-col gap-2 grow min-w-0 min-h-0 overflow-auto px-4 pb-4">
         {list.map((profile) => (
           <button
             key={profile.directory}
@@ -103,7 +103,7 @@ function Browser({ browserKey }) {
               loading="lazy"
             />
 
-            <div className="flex flex-col grow min-w-0">
+            <div className="flex flex-col grow min-w-0 min-h-0 min-w-0">
               <h3 className="font-bold truncate w-full">
                 {profile.name || profile.directory}{" "}
                 {profile["gaia_name"] ? (
@@ -136,7 +136,7 @@ function Browser({ browserKey }) {
   );
 }
 
-Browser.propTypes = {
+BrowserProfiles.propTypes = {
   browserKey: PropTypes.string,
 };
 
@@ -199,9 +199,9 @@ function App() {
   }, [setIsRunning, setAddresses]);
 
   return (
-    <div className="flex flex-col gap-2 h-dvh py-4">
-      <div className="px-4 flex gap-2 items-center">
-        <div className="flex gap-2 items-center grow">
+    <div className="flex flex-col gap-2 h-screen pt-4 overflow-clip">
+      <div className="px-4 flex gap-2 items-center shrink-0">
+        <div className="flex gap-2 items-center grow min-w-0 min-h-0">
           <img src={AppIcon} className="size-8 shrink-0" />
           <h1 className="font-turret-road text-orange-500 text-2xl truncate">
             Purrfect Launcher
@@ -222,9 +222,9 @@ function App() {
       <Tabs.Root
         value={tab}
         onValueChange={setTab}
-        className="flex flex-col gap-2 grow"
+        className="flex flex-col gap-2 grow min-w-0 min-h-0"
       >
-        <Tabs.List className="overflow-auto flex gap-1 flex-nowrap px-4 py-1">
+        <Tabs.List className="overflow-x-auto flex gap-1 flex-nowrap px-4 py-1 shrink-0">
           {browsers.map((browser) => (
             <BrowserButton
               key={browser.key}
@@ -236,7 +236,7 @@ function App() {
 
         {browsers.map((browser) => (
           <Tabs.Content key={browser.key} value={browser.key} asChild>
-            <Browser browserKey={browser.key} />
+            <BrowserProfiles browserKey={browser.key} />
           </Tabs.Content>
         ))}
       </Tabs.Root>
